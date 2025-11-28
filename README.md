@@ -37,7 +37,7 @@ Você precisa do **Rust Toolchain** (via `rustup`) e dos *headers* da biblioteca
 
 O **hcorner** lê sua configuração no arquivo **`~/.config/hcorner.conf`**.
 
-Se o arquivo ou uma das quatro opções (TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT) estiverem faltando, o programa não será executado.
+O programa exige que os quatro cantos (`TOP_LEFT`, `TOP_RIGHT`, `BOTTOM_LEFT`, `BOTTOM_RIGHT`) estejam definidos no arquivo. Se você não quiser usar um canto, defina o *status* como `0`.
 
 ### Formato do Arquivo
 
@@ -47,3 +47,20 @@ Cada linha deve ter o formato `CANTO="comando shell",status`.
 * **status:** `1` para **ativado** (o canto irá disparar); `0` para **desativado** (o canto será ignorado).
 
 ### Exemplo: `~/.config/hcorner.conf`
+
+```ini
+# --- Exemplo de Configuração de hcorner ---
+
+# Canto Superior Esquerdo: Abre o xterm, ATIVADO (1)
+TOP_LEFT="xterm",1
+
+# Canto Superior Direito: Abre o Firefox, DESATIVADO (0)
+TOP_RIGHT="/usr/bin/firefox -new-window",0
+
+# Canto Inferior Esquerdo: Mata todos os processos do xterm, ATIVADO (1)
+BOTTOM_LEFT="killall xterm",1
+
+# Canto Inferior Direito: Usa o comando 'true' (não faz nada), DESATIVADO (0)
+BOTTOM_RIGHT="true",0
+
+Eu por exemplo uso o skippy-xd para ter um efeito estilo expoze em meu LXDE.
