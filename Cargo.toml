@@ -1,0 +1,9 @@
+[package]
+name = "hcorner"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+dirs = "5.0.1"
+# Corrigido: Usando a feature 'xlib' que é suportada pela crate 'x11'.
+x11 = { version = "2.21.0", features = ["xlib"] }
