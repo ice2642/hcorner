@@ -46,14 +46,17 @@ Cada linha deve ter o formato `CANTO="comando shell",status`.
 * **comando shell:** O comando que será executado (ex: `"xterm"`, `"nautilus /home/user"`, etc.).
 * **status:** `1` para **ativado** (o canto irá disparar); `0` para **desativado** (o canto será ignorado).
 
-No arquivo que voce colocar em seu .confg não pode ter comentarios ou o programa dará erro.
-### Exemplo: `~/.config/hcorner.conf`
-# --- Exemplo de Configuração de hcorner ---
+ No hcorner.conf que voce colocar em seu .confg não pode ter comentarios ou o programa dará erro.
 
-# Canto Superior Esquerdo: Abre o xterm, ATIVADO (1)
-# Canto Inferior Direito: Usa o comando 'true' (não faz nada), DESATIVADO (0)
-# Canto Inferior Esquerdo: Mata todos os processos do xterm, ATIVADO (1)
-# Canto Superior Direito: Abre o Firefox, DESATIVADO (0)
+ Exemplo: `~/.config/hcorner.conf`  << Este programa deve estar em seu home/.config/
+
+ --- Exemplo de Configuração de hcorner ---
+
+ Canto Superior Esquerdo: Abre o xterm, ATIVADO (1)
+ Canto Inferior Direito: Usa o comando 'true' (não faz nada), DESATIVADO (0)
+ Canto Inferior Esquerdo: Mata todos os processos do xterm, ATIVADO (1)
+ Canto Superior Direito: Abre o Firefox, DESATIVADO (0)
+
 ```ini
 
 TOP_LEFT="xterm",1
