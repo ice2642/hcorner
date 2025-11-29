@@ -19,7 +19,7 @@ Você precisa do **Rust Toolchain** (via `rustup`) e dos *headers* da biblioteca
 
 1.  Clone este repositório:
     ```bash
-    git clone [https://github.com/ice2642/hcorner.git](https://github.com/ice2642/hcorner.git)
+    git clone https://github.com/ice2642/hcorner.git
     cd hcorner
     ```
 2.  Compile o projeto (a flag `--release` gera um binário otimizado e muito mais leve):
@@ -46,6 +46,7 @@ Cada linha deve ter o formato `CANTO="comando shell",status`.
 * **comando shell:** O comando que será executado (ex: `"xterm"`, `"nautilus /home/user"`, etc.).
 * **status:** `1` para **ativado** (o canto irá disparar); `0` para **desativado** (o canto será ignorado).
 
+No arquivo que voce colocar em seu .confg não pode ter comentarios ou o programa dará erro.
 ### Exemplo: `~/.config/hcorner.conf`
 
 ```ini
@@ -62,5 +63,6 @@ BOTTOM_LEFT="killall xterm",1
 
 # Canto Inferior Direito: Usa o comando 'true' (não faz nada), DESATIVADO (0)
 BOTTOM_RIGHT="true",0
+```
 
 Eu por exemplo uso o skippy-xd para ter um efeito estilo expoze em meu LXDE.
