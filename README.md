@@ -48,20 +48,17 @@ Cada linha deve ter o formato `CANTO="comando shell",status`.
 
 No arquivo que voce colocar em seu .confg não pode ter comentarios ou o programa dará erro.
 ### Exemplo: `~/.config/hcorner.conf`
-
-```ini
 # --- Exemplo de Configuração de hcorner ---
 
 # Canto Superior Esquerdo: Abre o xterm, ATIVADO (1)
-TOP_LEFT="xterm",1
-
-# Canto Superior Direito: Abre o Firefox, DESATIVADO (0)
-TOP_RIGHT="/usr/bin/firefox -new-window",0
-
-# Canto Inferior Esquerdo: Mata todos os processos do xterm, ATIVADO (1)
-BOTTOM_LEFT="killall xterm",1
-
 # Canto Inferior Direito: Usa o comando 'true' (não faz nada), DESATIVADO (0)
+# Canto Inferior Esquerdo: Mata todos os processos do xterm, ATIVADO (1)
+# Canto Superior Direito: Abre o Firefox, DESATIVADO (0)
+```ini
+
+TOP_LEFT="xterm",1
+TOP_RIGHT="/usr/bin/firefox -new-window",0
+BOTTOM_LEFT="killall xterm",1
 BOTTOM_RIGHT="true",0
 ```
 
