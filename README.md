@@ -66,3 +66,64 @@ BOTTOM_RIGHT="true",0
 ```
 
 Eu por exemplo uso o skippy-xd para ter um efeito estilo expoze em meu LXDE.
+
+🇬🇧 English Translation
+Here is the English translation of the README.md file.
+
+hcorner: Hot Corner for X11 (Rust)
+hcorner is a lightweight and minimal screen corner utility (hot corner) written in Rust, designed for X11-based desktop environments, such as Openbox, LXDE, Fluxbox, and other window managers without heavy compositors.
+
+The program monitors the mouse position and, if it remains stationary in one of the four screen corners for a configurable time (default: 200ms), it executes a user-defined shell command.
+
+🚀 Installation
+Prerequisites
+You need the Rust Toolchain (via rustup) and the X11 library headers installed on your system.
+
+Rust: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+X11 Headers (Debian/Ubuntu/Antix): sudo apt install libx11-dev
+
+Compilation
+Clone this repository:
+
+Bash
+
+git clone https://github.com/ice2642/hcorner.git
+cd hcorner
+Compile the project (the --release flag generates an optimized and much lighter binary):
+
+Bash
+
+cargo build --release
+The executable will be in ./target/release/hcorner. You can move it to a directory in your PATH, such as /usr/local/bin.
+
+Bash
+
+sudo cp target/release/hcorner /usr/local/bin/
+⚙️ Configuration
+hcorner reads its configuration from the file ~/.config/hcorner.conf.
+
+The program requires that all four corners (TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT) be defined in the file. If you do not want to use a corner, set the status to 0.
+
+File Format
+Each line must have the format CORNER="shell command",status.
+
+shell command: The command to be executed (e.g., "xterm", "nautilus /home/user", etc.).
+
+status: 1 for enabled (the corner will trigger); 0 for disabled (the corner will be ignored).
+
+The hcorner.conf file you place in your .config must not contain comments, or the program will throw an error.
+
+Example: ~/.config/hcorner.conf << This program must be in your home/.config/
+
+--- Example hcorner Configuration ---
+
+Top Left Corner: Opens xterm, ENABLED (1) Bottom Right Corner: Uses the 'true' command (does nothing), DISABLED (0) Bottom Left Corner: Kills all xterm processes, ENABLED (1) Top Right Corner: Opens Firefox, DISABLED (0)
+
+Ini, TOML
+
+TOP_LEFT="xterm",1
+TOP_RIGHT="/usr/bin/firefox -new-window",0
+BOTTOM_LEFT="killall xterm",1
+BOTTOM_RIGHT="true",0
+For example, I use skippy-xd to get an expose-style effect in my LXDE.
